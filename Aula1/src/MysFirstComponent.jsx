@@ -14,3 +14,4 @@ function MyFirstComponent(){
     );
 }
 export default MyFirstComponent
+navigator
