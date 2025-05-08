@@ -1,5 +1,5 @@
 function Escopo(){
-    const label = "Clique aqui"
+    const label = "Clique aqui!"
     return(
     
         <>
