@@ -5,7 +5,7 @@ function Escopo(){
         <>
             <div>
                 <h2>Texto de componente</h2>
-                <p>Hello word</p>
+                <p>Hello world!</p>
             </div>
             
             <div>
