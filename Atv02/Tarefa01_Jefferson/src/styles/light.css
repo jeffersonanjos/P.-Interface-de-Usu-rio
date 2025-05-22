@@ -1,0 +1,14 @@
+:root {
+    --bg: #ffffff;
+    --text: #333333;
+    --card: #f0f0f0;
+  }
+  
+  body.light {
+    background: var(--bg);
+    color: var(--text);
+  }
+  
+  .card {
+    background: var(--card);
+  }
