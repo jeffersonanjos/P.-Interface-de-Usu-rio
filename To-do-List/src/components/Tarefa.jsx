@@ -28,7 +28,7 @@ export default function Tarefa(props) {
       <p style={{ color: concluida ? "green" : "red" }}>
         A Tarefa está {concluida == true ? "Concluida" : "Pendente"}
       </p>
-
+      
       {/*
         Botão que muda o estado da tarefa quando clicado.
         - Se a tarefa estiver pendente, o botão mostrará "Concluir"
