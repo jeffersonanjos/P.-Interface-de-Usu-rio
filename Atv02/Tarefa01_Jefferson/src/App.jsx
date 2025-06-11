@@ -1,28 +1,48 @@
-// Verifique os caminhos - eles devem ser exatos
-import Galeria from './components/Galeria.jsx'; // Adicione a extensão
-import Tema from './components/Tema.jsx'; // Adicione a extensão
-import './styles/light.css';
-import './styles/dark.css';
+import { useState } from 'react'
+import './App.css'
+import Tema from './componentes/Tema'
+import Card from './componentes/Card'
+import Galeria from './componentes/Galeria'
+import Detalhes from './componentes/Detalhes'
 
-const App = () => {
-  const [temaEscuro, setTemaEscuro] = useState(false);
-  const [personagemSelecionado, setPersonagemSelecionado] = useState(null);
+import frisk from "./assets/frisk.jpg"
+import gon from "./assets/gon.webp"
+import kate from "./assets/kate.png"
+import luffy from "./assets/luffy.webp"
+import max from "./assets/max.png"
+import frieren from "./assets/frieren.png"
 
-  useEffect(() => {
-    document.body.className = temaEscuro ? 'dark' : 'light';
-  }, [temaEscuro]);
 
-  const toggleTema = () => setTemaEscuro(!temaEscuro);
+function App() {
+
+  const [personagemselecionado,setPersonagemselecionado] = useState(null)
+
+  const personagens = [
+    { nome: "Frisk", imagem: frisk, descricao: "Apenas uma criança. Protagonista do jogo Undertale" },
+    { nome: "Gon Freecss", imagem: gon, descricao: "Um hunter que ta procurando o pai que foi comprar leite. Protagonista do anime Hunter x Hunter" },
+    { nome: "Kate Shadow", imagem: kate, descricao: "Uma criança da familia Shadow. Protagonista do anime Shadows House" },
+    { nome: "Monkey D. Luffy", imagem: luffy, descricao: "O futuro rei dos piratas. Protagonista do anime One Piece" },
+    { nome: "Max Caulfield", imagem: max, descricao: "Uma estudante com o poder de voltar no tempo. Protagonista do jogo Life is Strange" },
+    { nome: "Frieren ", imagem: frieren, descricao: "Uma maga elfa caçadora de demonios. Protagonista de Sousou no Frieren" },
+  ]
+
+  function selecionar(personagem) {
+    setPersonagemselecionado(personagem)
+    console.log(personagem.nome)
+  }
 
   return (
-    <div className={`app ${temaEscuro ? 'dark' : 'light'}`}>
-      <Tema toggleTema={toggleTema} temaEscuro={temaEscuro} />
-      <Galeria 
-        personagemSelecionado={personagemSelecionado}
-        setPersonagemSelecionado={setPersonagemSelecionado}
-      />
-    </div>
-  );
-};
+    <>
+      <Tema />
+      <Galeria personagens={personagens} trocapersonagem={selecionar} />     
+      {personagemselecionado ? (
+        <Detalhes nome={personagemselecionado.nome} imagem = {personagemselecionado.imagem} descricao={personagemselecionado.descricao} />
+      ) : (
+        <p>Selecione um personagem para ver os detalhes</p>
+      )}
+    </>
+  )
+}
 
-export default App;
+export default App
+
